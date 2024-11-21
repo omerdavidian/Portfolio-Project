@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.onscroll = function () {
+        shrinkNavbar();
+      };
+
+      function shrinkNavbar() {
+        var header = document.querySelector("header");
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let slides = document.querySelectorAll(".slide");
+        let currentIndex = 0;
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function nextSlide() {
+          slides[currentIndex].classList.remove("active");
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add("active");
+        }
+
+        document
+          .querySelector(".arrow.left")
+          .addEventListener("click", function () {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            slides[currentIndex].classList.add("active");
+          });
+
+        document
+          .querySelector(".arrow.right")
+          .addEventListener("click", function () {
+            nextSlide();
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <nav>
+        <div class="logo">Your Logo Here</div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#more">More</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Slider Section -->
+    <div class="slider">
+      <div class="slide active">
+        <img src="./sources/Denver.jpg" alt="Slide 1" />
+        <h1>Welcome to My Portfolio</h1>
+        <h2>Discover My Work</h2>
+      </div>
+      <div class="slide">
+        <img src="./sources/_65A8770.jpg" alt="Slide 2" />
+        <h1>Creative Projects</h1>
+        <h2>Innovative Solutions</h2>
+      </div>
+      <div class="slide">
+        <img src="./sources/Hummingbird 1.jpg" alt="Slide 3" />
+        <h1>Professional Experience</h1>
+        <h2>Quality Results</h2>
+      </div>
+      <button class="arrow left">&#10094;</button>
+      <button class="arrow right">&#10095;</button>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home">
+      <h1>Welcome to My Portfolio</h1>
+      <p>
+        My name is Omer Davidian. I studied computer engineering in high school
+        and eventually pursued another career. Now, I am taking a Codecademy
+        course to catch up on everything tech related, with the goal of changing
+        careers and getting a job in tech.
+      </p>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work">
+      <h2>My Work</h2>
+      <p>
+        Details or gallery showcasing your previous projects or portfolio
+        pieces.
+      </p>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo">
+      <h2>Live Demo</h2>
+      <p>
+        A section to include live examples or demo projects you have worked on.
+      </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>A brief biography or information about you and your background.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Provide contact information or a contact form here.</p>
+    </section>
+
+    <!-- More Section -->
+    <section id="more">
+      <h2>More Information</h2>
+      <p>Additional resources, links, or content you'd like to share.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Omer Davidian. All rights reserved.</p>
+      <p>
+        Email: <a href="mailto:omerdavidian@gmail.com">omerdavidian@gmail.com
+      </p>
+      <p>
+        Social Media Links: <a href="#">LinkedIn</a> | <a href="#">Twitter</a>
+      </p>
+    </footer>
+  </body>
+</html>
